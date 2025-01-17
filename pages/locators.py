@@ -35,7 +35,7 @@ class AboutLocators:
 
 class DownloadLocators:
     '''Локаторы страницы download'''
-    SBIS_PLUGIN = (By.XPATH, "//div[text()='СБИС Плагин']")
+    SBIS_PLUGIN = (By.XPATH, "//div[text()='Saby Plugin']")
     WINDOWS = (By.XPATH, "//span[text()='Windows']")
     DOWNLOAD_EXE = (By.XPATH, "//a[text()='Скачать (Exe 10.42 МБ) ']")
 
