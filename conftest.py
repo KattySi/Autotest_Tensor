@@ -11,7 +11,7 @@ from selenium.webdriver.chrome.service import Service
 @pytest.fixture(scope='session')
 def browser():
     chrome_driver_path: str = '/usr/local/bin/chromedriver'
-    download_in_directory: Path = Path.cwd() / 'Download'
+    download_in_directory: Path = Path.cwd() / 'download'
     chrome_options: Options = Options()
     chrome_options.add_experimental_option(
         "prefs", {

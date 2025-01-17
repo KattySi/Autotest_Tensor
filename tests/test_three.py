@@ -32,7 +32,7 @@ def test_three(browser: webdriver) -> None:
     download_exe.click()
 
     file_name: str = "sbisplugin-setup-web.exe"
-    path_to_file: Path = Path.cwd() / 'Download/'/ str(file_name)
+    path_to_file: Path = Path.cwd() / 'download/'/ str(file_name)
 
     text_link_download: str = download_exe.text
     pattern: str = r"(\d+\.\d+)"
