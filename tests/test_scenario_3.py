@@ -48,7 +48,3 @@ def test_three(browser: webdriver, cleanup_download) -> None:
             file_size_mb: float = round((file_size_byte / (1024 * 1024)), 2)
             assert (str(file_size_mb)) == size_file_from_link, "Неправильный размер файла"
 
-    clear_download(path_to_file=str(path_to_file))
-
-
-
