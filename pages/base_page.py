@@ -6,13 +6,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-
 class BasePage:
     def __init__(self, browser: WebDriver, url: str, timeout: int = 20) -> None:
         self.browser = browser
         self.url = url
-        self.browser.implicitly_wait(timeout)
-
+        # self.browser.implicitly_wait(timeout)
 
     def is_element_present(self, locator) -> WebElement | bool:
         """Находит один элемент и возвращает его"""
@@ -22,10 +20,8 @@ class BasePage:
             return False
         return obj
 
-
     def open(self) -> None:
         self.browser.get(self.url)
-
 
     def is_element_clickable(self, locator) -> WebElement | bool:
         """ Ждёт когда элемент станет кликабельным и возвращает его"""
@@ -35,7 +31,6 @@ class BasePage:
             return False
         return obj
 
-
     def is_element_visibility(self, locator) -> WebElement | bool:
         """ Ждёт когда элемент станет видимым и возвращает его """
         try:
@@ -43,3 +38,11 @@ class BasePage:
         except NoSuchElementException:
             return False
         return obj
+
+    def is_element_to_be_present_text(self, locator, text) -> bool:
+        """ Ждёт, пока указанный текст не будет присутствовать внутри указанного элемента """
+        try:
+            result: bool = WebDriverWait(self.browser, 15).until(EC.text_to_be_present_in_element(locator=locator, text_=text))
+        except NoSuchElementException:
+            return False
+        return result
