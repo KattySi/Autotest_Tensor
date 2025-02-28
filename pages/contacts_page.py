@@ -5,11 +5,9 @@ from pages.base_page import BasePage
 from pages.locators import ContactsLocators
 
 
-
 class ContactsPage(BasePage):
     def __init__(self, browser: WebDriver, url: str, timeout: int = 10) -> None:
         super().__init__(browser, url, timeout)
-
 
     def should_be_banner(self) -> WebElement:
         assert (banner := self.is_element_present(ContactsLocators.BANNER)), "нет баннера"
@@ -26,4 +24,11 @@ class ContactsPage(BasePage):
     def should_be_kamchatka(self) -> WebElement:
         assert (kamchatka := self.is_element_clickable(ContactsLocators.KAMCHATKA)), "Камчатка отсутствует в списке"
         return kamchatka
+
+    def should_be_present_text_new_region(self):
+        assert self.is_element_to_be_present_text(
+            locator=ContactsLocators.REGION, text="Камчатский край"
+        ), "Выбран не Камчатский Край или не найден регион"
+
+
 
