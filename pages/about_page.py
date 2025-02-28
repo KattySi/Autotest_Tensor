@@ -5,11 +5,9 @@ from pages.base_page import BasePage
 from pages.locators import AboutLocators
 
 
-
 class AboutPage(BasePage):
     def __init__(self, browser: WebDriver, url: str, timeout: int = 10) -> None:
         super().__init__(browser, url, timeout)
-
 
     def should_be_img_1(self) -> WebElement:
         assert (img_1 := self.is_element_present(AboutLocators.IMG_1)), "отсутствует картинка 'Разрабатываем систему'"
@@ -20,7 +18,7 @@ class AboutPage(BasePage):
         return img_2
 
     def should_be_img_3(self) -> WebElement:
-        assert (img_3 := self.is_element_present(AboutLocators.IMG_3)), "отсутствует картинка 'Создаем инфраструктуруу'"
+        assert (img_3 := self.is_element_present(AboutLocators.IMG_3)), "отсутствует картинка 'Создаем инфраструктуру'"
         return img_3
 
     def should_be_img_4(self) -> WebElement:
