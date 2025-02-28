@@ -1,23 +1,18 @@
-from time import  sleep
 from selenium import webdriver
-
 from selenium.webdriver.remote.webelement import WebElement
 
 from pages.main_page import MainPage
 from pages.contacts_page import ContactsPage
 
 
-
 def test_two(browser: webdriver) -> None:
     link: str = 'https://sbis.ru/'
     main_page: MainPage = MainPage(browser, link, 10)
     main_page.open()
-    sleep(0.44)
     contacts: WebElement = main_page.should_be_contacts()
     contacts.click()
-    contacts_mote: WebElement = main_page.should_be_contacts_more()
-    contacts_mote.click()
-    sleep(1.5)
+    contacts_more: WebElement = main_page.should_be_contacts_more()
+    contacts_more.click()
     contacts_page: ContactsPage = ContactsPage(browser, browser.current_url)
     region: WebElement = contacts_page.should_be_region()
     assert region.text ==  "Нижегородская обл.", "Неправильно определилось местоположение"
@@ -25,7 +20,6 @@ def test_two(browser: webdriver) -> None:
     list_partners: WebElement = contacts_page.should_be_list_partners()
     assert list_partners.text == "Нижний Новгород", "Не правильный список партнеров"
     region.click()
-    sleep(2)
     kamchatka: WebElement = contacts_page.should_be_kamchatka()
     kamchatka.click()
     sleep(5)
