@@ -1,5 +1,4 @@
 import re
-from time import sleep
 from pathlib import Path
 import os
 from typing import Match
@@ -9,7 +8,7 @@ from selenium.webdriver.remote.webelement import WebElement
 
 from pages.main_page import MainPage
 from pages.download_page import DownloadPage
-from utils import wait_for_file_to_download, clear_download
+from utils import wait_for_file_to_download
 
 
 
@@ -17,17 +16,20 @@ def test_three(browser: webdriver) -> None:
     link: str = 'https://sbis.ru/'
     main_page: MainPage = MainPage(browser, link, 10)
     main_page.open()
-    sleep(0.44)
+
     browser.execute_script("window.scrollTo(0, document.body.scrollHeight)")
-    sleep(4)
+
     download_local_versions: WebElement = main_page.should_be_download_local_versions()
     download_local_versions.click()
-    sleep(2)
+
     download_page: DownloadPage = DownloadPage(browser, browser.current_url)
+
     sbis_plugin: WebElement = download_page.should_be_sbis_plugin()
     sbis_plugin.click()
+
     windows: WebElement = download_page.should_be_windows()
     windows.click()
+
     download_exe: WebElement = download_page.should_be_download_exe()
     download_exe.click()
 
