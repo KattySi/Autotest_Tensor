@@ -23,9 +23,7 @@ def test_two(browser: webdriver) -> None:
     region.click()
     kamchatka: WebElement = contacts_page.should_be_kamchatka()
     kamchatka.click()
-    sleep(5)
-
-    new_region: WebElement = contacts_page.should_be_region()
+    contacts_page.should_be_present_text_new_region()
     new_list_partners: WebElement = contacts_page.should_be_list_partners()
     assert new_list_partners.text == "Петропавловск-Камчатский", "Список партнеров не Камчатка"
 
