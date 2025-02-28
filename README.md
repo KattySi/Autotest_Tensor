@@ -1,13 +1,13 @@
     ```markdown
 # Тестовое задание от компании 'Тэнзор' на автотестирование
 
-![1](images/1.png)
+![1](images/page_1.png)
 
-![2](images/2.png)
+![2](images/page_2.png)
 
-![3](images/3.png)
+![3](images/page_3.png)
 
-![4](images/4.png)
+![4](images/page_4.png)
 
 
 ### Как установить
