@@ -3,11 +3,8 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators:
     '''Локаторы главной страницы'''
-    # TARIFFS = (By.CSS_SELECTOR, "div.first-step div.form__input_login input")
     CONTACTS = (By.CSS_SELECTOR, "ul.sbisru-Header__menu div.sbisru-Header__menu-link")
     CONTACTS_MORE = (By.CSS_SELECTOR, "ul.sbisru-Header__menu a.sbisru-link.sbis_ru-link span")
-    # BLOG = (By.CSS_SELECTOR, "div.first-step div.form__input_password input")
-    # SUPPORT = (By.CSS_SELECTOR, '#regular_enter > button')
     DOWNLOAD_LOCAL_VERSIONS = (By.XPATH, "//a[text()='Скачать локальные версии']")
 
 
