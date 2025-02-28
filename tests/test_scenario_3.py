@@ -11,8 +11,7 @@ from pages.download_page import DownloadPage
 from utils import wait_for_file_to_download
 
 
-
-def test_three(browser: webdriver) -> None:
+def test_three(browser: webdriver, cleanup_download) -> None:
     link: str = 'https://sbis.ru/'
     main_page: MainPage = MainPage(browser, link, 10)
     main_page.open()
@@ -34,7 +33,7 @@ def test_three(browser: webdriver) -> None:
     download_exe.click()
 
     file_name: str = "sbisplugin-setup-web.exe"
-    path_to_file: Path = Path.cwd() / 'download/'/ str(file_name)
+    path_to_file: Path = cleanup_download / str(file_name)
 
     text_link_download: str = download_exe.text
     pattern: str = r"(\d+\.\d+)"
