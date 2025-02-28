@@ -1,9 +1,13 @@
+import os
+from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 
 from pages.main_page import MainPage
 from pages.contacts_page import ContactsPage
 
+
+load_dotenv()
 
 def test_two(browser: webdriver) -> None:
     link: str = 'https://sbis.ru/'
@@ -15,10 +19,13 @@ def test_two(browser: webdriver) -> None:
     contacts_more.click()
     contacts_page: ContactsPage = ContactsPage(browser, browser.current_url)
     region: WebElement = contacts_page.should_be_region()
-    assert region.text ==  "Нижегородская обл.", "Неправильно определилось местоположение"
+
+    selected_region = os.getenv("REGION")
+    selected_city = os.getenv("CITY")
+    assert region.text == selected_region, "Неправильно определилось местоположение"
 
     list_partners: WebElement = contacts_page.should_be_list_partners()
-    assert list_partners.text == "Нижний Новгород", "Не правильный список партнеров"
+    assert list_partners.text == selected_city, "Не правильный список партнеров"
 
     region.click()
     kamchatka: WebElement = contacts_page.should_be_kamchatka()
