@@ -25,7 +25,7 @@ class ContactsPage(BasePage):
         assert (kamchatka := self.is_element_clickable(ContactsLocators.KAMCHATKA)), "Камчатка отсутствует в списке"
         return kamchatka
 
-    def should_be_present_text_new_region(self):
+    def should_be_present_text_new_region(self) -> None:
         assert self.is_element_to_be_present_text(
             locator=ContactsLocators.REGION, text="Камчатский край"
         ), "Выбран не Камчатский Край или не найден регион"
