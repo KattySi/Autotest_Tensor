@@ -31,3 +31,9 @@ def cleanup_download():
     DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
     yield DOWNLOAD_DIR
     shutil.rmtree(str(DOWNLOAD_DIR))
+
+
+@pytest.fixture
+def config_data():
+    data: dict = {'path_to_dir_download': DOWNLOAD_DIR}
+    return data
