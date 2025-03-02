@@ -29,7 +29,7 @@ def cleanup_download():
     if DOWNLOAD_DIR.is_dir():
         shutil.rmtree(str(DOWNLOAD_DIR))
     DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
-    yield DOWNLOAD_DIR
+    yield
     shutil.rmtree(str(DOWNLOAD_DIR))
 
 
